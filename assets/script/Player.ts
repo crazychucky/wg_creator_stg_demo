@@ -1,5 +1,6 @@
 
 import { _decorator, Component, Node,systemEvent,SystemEvent,EventKeyboard,KeyCode,Vec3,CCInteger, CCBoolean,view  } from 'cc';
+import { Collider2D,Contact2DType,PhysicsSystem2D,EPhysics2DDrawFlags,IPhysics2DContact  } from 'cc';
 import { PLAYER_SPEED,EDGE_OFFSET } from './Config';
 const { ccclass, property } = _decorator;
 
@@ -81,9 +82,35 @@ export class Player extends Component {
     // serializableDummy = 0;
 
     start () {
+      //debug
+      PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb
+
+        let collider = this.getComponent(Collider2D);
+        if (collider) {
+            collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
+            collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
+            collider.on(Contact2DType.PRE_SOLVE, this.onPreSolve, this);
+            collider.on(Contact2DType.POST_SOLVE, this.onPostSolve, this);
+        }
         // [3]
     }
 
+    onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+        // 只在两个碰撞体开始接触时被调用一次
+        console.log('onBeginContact');
+    }
+    onEndContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+        // 只在两个碰撞体结束接触时被调用一次
+        console.log('onEndContact');
+    }
+    onPreSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+        // 每次将要处理碰撞体接触逻辑时被调用
+        console.log('onPreSolve');
+    }
+    onPostSolve (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+        // 每次处理完碰撞体接触逻辑时被调用
+        console.log('onPostSolve');
+    }
     update (deltaTime: number) {
         // [4]
         if(this._leftFlag && !this._rightFlag){
