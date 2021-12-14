@@ -40,7 +40,6 @@ export class Player extends Component {
         systemEvent.on(SystemEvent.EventType.KEY_UP, this.onKeyUp, this);
 
         let si = view.getDesignResolutionSize()
-        console.log(si)
         let width = si.width
         this._minX = width*-0.5 + EDGE_OFFSET
         this._maxX = width*0.5 - EDGE_OFFSET
@@ -96,7 +95,6 @@ export class Player extends Component {
             x = this._minX
           }
           this.node.setPosition(new Vec3(x,y,0))
-          console.log(x)
         }
         else if(!this._leftFlag && this._rightFlag){
           let add = this._speed*deltaTime
@@ -106,7 +104,6 @@ export class Player extends Component {
           if(x>this._maxX){
             x = this._maxX
           }
-          console.log(x)
           this.node.setPosition(new Vec3(x,y,0))
         }
     }
