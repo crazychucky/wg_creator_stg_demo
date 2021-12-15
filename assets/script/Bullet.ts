@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, CCInteger,Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 /**
@@ -22,6 +22,11 @@ export class Bullet extends Component {
     // [2]
     // @property
     // serializableDummy = 0;
+    @property({ type: CCInteger })
+    private _vx = 0
+
+    @property({ type: CCInteger })
+    private _vy = 480
 
     //TODO:
     //设置角度 速度
@@ -30,12 +35,32 @@ export class Bullet extends Component {
     //碰撞后消失
     //生命时间 倒计时结束也消失
     start () {
-        // [3]
+      this._vx = 0
+      this._vy = 0
+    }
+    setVelocity (vx:number,vy:number ) {
+      this._vx = vx
+      this._vy = vy
     }
 
-    // update (deltaTime: number) {
-    //     // [4]
-    // }
+    update (deltaTime: number) {
+        let x = this.node.position.x
+        let y = this.node.position.y
+        let moved = false
+        if(this._vx != 0){
+            let add = this._vx*deltaTime
+            x+=add
+            moved = true
+        }
+        if(this._vy != 0){
+            let add = this._vy*deltaTime
+            y+=add
+            moved = true
+        }
+        if(moved){
+          this.node.setPosition(new Vec3(x,y,0))
+        }
+    }
 }
 
 /**
