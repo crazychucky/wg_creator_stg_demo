@@ -30,10 +30,13 @@
       },
       {
         "__id__": 12
+      },
+      {
+        "__id__": 14
       }
     ],
     "_prefab": {
-      "__id__": 14
+      "__id__": 16
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -232,7 +235,7 @@
       "__id__": 11
     },
     "bullet": {
-      "__uuid__": "aa0942cd-42b1-402c-a6e7-a74597beb91c",
+      "__uuid__": "14a0c6e6-dc0b-489c-bd44-56f57e665dce",
       "__expectedType__": "cc.Prefab"
     },
     "fireInterval": 1,
@@ -257,7 +260,7 @@
       "__id__": 13
     },
     "tag": 0,
-    "_group": 2,
+    "_group": 4,
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
@@ -319,6 +322,24 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "0dfKjpmIdExqTLBIlesmZJ"
+  },
+  {
+    "__type__": "d1fc3wJ1jJHsYZXDPfabqEB",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 15
+    },
+    "gameController": null,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "00/2awYZZC+7+wBwo8KLGc"
   },
   {
     "__type__": "cc.PrefabInfo",

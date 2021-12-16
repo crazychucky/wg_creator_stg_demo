@@ -41,7 +41,6 @@ export class ShootCom extends Component {
     start () {
       this.fireInterval = 1.0
       this._fireTimeCount = 0
-      console.log(this.node.getRotation())
     }
 
     shoot () {
