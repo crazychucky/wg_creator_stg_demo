@@ -96,6 +96,8 @@ export class Player extends Component {
     }
 
     onBeginContact (selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact | null) {
+      console.log(selfCollider)
+      console.log(otherCollider)
         // 只在两个碰撞体开始接触时被调用一次
         console.log('onBeginContact');
     }

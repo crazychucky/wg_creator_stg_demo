@@ -13,6 +13,8 @@ const { ccclass, property } = _decorator;
  * ManualUrl = https://docs.cocos.com/creator/3.3/manual/zh/
  *
  */
+
+let LIFE_TIME = 60
  
 @ccclass('Bullet')
 export class Bullet extends Component {
@@ -26,7 +28,10 @@ export class Bullet extends Component {
     private _vx = 0
 
     @property({ type: CCInteger })
-    private _vy = 480
+    private _vy = 0
+
+    @property({ type: CCInteger })
+    private _lifeTime = 600
 
     //TODO:
     //设置角度 速度
@@ -35,8 +40,7 @@ export class Bullet extends Component {
     //碰撞后消失
     //生命时间 倒计时结束也消失
     start () {
-      this._vx = 0
-      this._vy = 0
+      this._lifeTime = LIFE_TIME
     }
     setVelocity (vx:number,vy:number ) {
       this._vx = vx
@@ -44,6 +48,12 @@ export class Bullet extends Component {
     }
 
     update (deltaTime: number) {
+        this._lifeTime -= deltaTime
+        if(this._lifeTime<=0){
+          console.log("time out")
+          this.node.destroy()
+          return
+        }
         let x = this.node.position.x
         let y = this.node.position.y
         let moved = false
