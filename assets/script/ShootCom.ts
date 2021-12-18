@@ -39,7 +39,6 @@ export class ShootCom extends Component {
     private fireOffset = 30
 
     start () {
-      this.fireInterval = 1.0
       this._fireTimeCount = 0
     }
 

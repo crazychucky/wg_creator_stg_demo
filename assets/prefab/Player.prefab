@@ -239,6 +239,7 @@
     "_speed": 10,
     "_minX": -480,
     "_maxX": 480,
+    "gameController": null,
     "_id": ""
   },
   {
@@ -260,7 +261,7 @@
       "__uuid__": "aa0942cd-42b1-402c-a6e7-a74597beb91c",
       "__expectedType__": "cc.Prefab"
     },
-    "fireInterval": 1,
+    "fireInterval": 0.5,
     "_fireTimeCount": 0,
     "fireDir": 0,
     "fireOffset": 30,
