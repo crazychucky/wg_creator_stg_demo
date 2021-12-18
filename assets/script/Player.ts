@@ -89,7 +89,7 @@ export class Player extends Component {
       this.gameController = n.getComponent("GameController")
 
       //debug
-      PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb
+      // PhysicsSystem2D.instance.debugDrawFlags = EPhysics2DDrawFlags.Aabb
 
         let collider = this.getComponent(Collider2D);
         if (collider) {
